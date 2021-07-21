@@ -29,12 +29,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="00:00:00:00"
+            android:text="@string/time"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/blinking_indicator"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="10dp" />
+
+
+        <com.example.pomodoro.CustomView
+            android:id="@+id/custom_view_one"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:custom_color="@color/red_700"
+            app:custom_style="fill"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_start_stop"
+            app:layout_constraintStart_toEndOf="@+id/stopwatch_timer"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_start_stop"

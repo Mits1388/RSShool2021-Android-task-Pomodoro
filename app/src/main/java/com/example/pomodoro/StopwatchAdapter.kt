@@ -5,15 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.pomodoro.databinding.StopwatchItemBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class StopwatchAdapter(
     private val listener: StopwatchListener
 ): ListAdapter<Stopwatch, StopwatchViewHolder>(itemComparator) {
 
+
     //В onCreateViewHolder инфлейтим View и возвращаем созданный ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StopwatchViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = StopwatchItemBinding.inflate(layoutInflater, parent, false)
+
         return StopwatchViewHolder(binding,listener,binding.root.context.resources)
     }
 
@@ -24,7 +29,6 @@ class StopwatchAdapter(
     }
 
     private companion object {
-
 //Имплементация DiffUtil помогает понять RecyclerView какой айтем изменился (был удален, добавлен) и контент какого айтема изменился - чтобы правильно проиграть анимацию и показать результат пользователю.
         private val itemComparator = object : DiffUtil.ItemCallback<Stopwatch>() {
 
@@ -36,7 +40,8 @@ class StopwatchAdapter(
     //В areContentsTheSame лучше проверять на равество только те параметры модели, которые влияют на её визуальное представление на экране.
             override fun areContentsTheSame(oldItem: Stopwatch, newItem: Stopwatch): Boolean {
                 return oldItem.currentMs == newItem.currentMs &&
-                        oldItem.isStarted == newItem.isStarted
+                        oldItem.isStarted == newItem.isStarted &&
+                        oldItem.startMinutes == newItem.startMinutes  // может и не надо
             }
         }
     }
