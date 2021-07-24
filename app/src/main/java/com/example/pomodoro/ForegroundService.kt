@@ -59,9 +59,9 @@ class ForegroundService: Service() {
                 //val startTime = intent?.extras?.getLong(STARTED_TIMER_TIME_MS) ?: return
 
                 val startTime = intent?.extras?.getLong(TIME_SYSTEM) ?: return
-                val runningTimer = intent.extras?.getLong(STARTED_TIMER_TIME_MS) ?: return
+                val countdown = intent.extras?.getLong(STARTED_TIMER_TIME_MS) ?: return
 
-                commandStart(startTime,runningTimer) // Если получили команду на старт сервиса
+                commandStart(startTime, countdown) // Если получили команду на старт сервиса
             }
             COMMAND_STOP -> commandStop() //останавливаем обновление секундомера job?.cancel()
             INVALID -> return
@@ -104,7 +104,7 @@ class ForegroundService: Service() {
     }
 
 
-    private fun continueTimer(startTime: Long, runningTimer: Long) {
+    private fun continueTimer(startTime: Long, countdown: Long) {
 
 
         job = GlobalScope.launch(Dispatchers.Main) {
@@ -114,10 +114,7 @@ class ForegroundService: Service() {
                 notificationManager?.notify(
                     NOTIFICATION_ID,
                     getNotification(
-                    (runningTimer - interval).displayTime()   //.dropLast(6)
-
-
-
+                   (countdown - interval).displayTime()   //.dropLast(6)
 
                     )
                 )

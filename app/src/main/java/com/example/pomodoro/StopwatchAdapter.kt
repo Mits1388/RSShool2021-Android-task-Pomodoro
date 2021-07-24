@@ -41,6 +41,8 @@ class StopwatchAdapter(
             override fun areContentsTheSame(oldItem: Stopwatch, newItem: Stopwatch): Boolean {
                 return oldItem.currentMs == newItem.currentMs &&
                         oldItem.isStarted == newItem.isStarted &&
+                        oldItem.isFinished== newItem.isFinished &&
+                        oldItem.currentMsView == newItem.currentMsView &&
                         oldItem.startMinutes == newItem.startMinutes  // может и не надо
             }
         }

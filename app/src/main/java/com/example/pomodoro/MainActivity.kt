@@ -107,12 +107,13 @@ class MainActivity : AppCompatActivity(), StopwatchListener , LifecycleObserver 
     //STOP - приложение ушло в фон
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onAppBackgrounded() {
-        val startIntent = Intent(this, ForegroundService::class.java)
-        startIntent.putExtra(COMMAND_ID, COMMAND_START)
-        startIntent.putExtra(STARTED_TIMER_TIME_MS, startMinutes)
-       // startService(startIntent)
-        startIntent.putExtra(TIME_SYSTEM, System.currentTimeMillis())
-        startService(startIntent)
+            val startIntent = Intent(this, ForegroundService::class.java)
+            startIntent.putExtra(COMMAND_ID, COMMAND_START)
+            startIntent.putExtra(STARTED_TIMER_TIME_MS, startMinutes)
+            // startService(startIntent)
+            startIntent.putExtra(TIME_SYSTEM, System.currentTimeMillis())
+            startService(startIntent)
+
     }
 
     //START - приложение на переднем плане
