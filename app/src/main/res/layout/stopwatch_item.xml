@@ -41,7 +41,7 @@
             android:id="@+id/custom_view_one"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            app:custom_color="@color/red_700"
+            app:custom_color="@color/red_500"
             app:custom_style="fill"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_start_stop"

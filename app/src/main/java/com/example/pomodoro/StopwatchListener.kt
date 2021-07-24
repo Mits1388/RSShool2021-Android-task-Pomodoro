@@ -4,7 +4,7 @@ interface StopwatchListener {
 
     fun start(id: Int)
 
-    fun stop(id: Int, currentMs: Long, isFinish: Boolean)
+    fun stop(id: Int, currentMs: Long, currentMsView: Long , isFinish: Boolean)
 
     //fun reset(id: Int)
 

@@ -42,6 +42,7 @@ class CustomView @JvmOverloads constructor(
         paint.strokeWidth = 5F
     }
 
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -74,9 +75,9 @@ class CustomView @JvmOverloads constructor(
     fun setPeriod(period: Long) {
         periodMs = period
     }
-
+/*
     private companion object {
         private const val FILL = 0
     }
-
+*/
 }
